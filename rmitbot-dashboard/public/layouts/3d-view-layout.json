@@ -1,0 +1,149 @@
+{
+  "configById": {
+    "3D!r1z4t4": {
+      "cameraState": {
+        "perspective": true,
+        "distance": 5.839780486774458,
+        "phi": 31.36414182542838,
+        "thetaOffset": 96.83729203436866,
+        "targetOffset": [
+          -0.9300965882895809,
+          -1.5522207071710454,
+          -1.212979950187198e-17
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-none",
+      "followTf": "map",
+      "fixedFrame": "map",
+      "scene": {
+        "meshUpAxis": "z_up"
+      },
+      "transforms": {},
+      "topics": {
+        "/map": {
+          "visible": true
+        },
+        "/robot_description": {
+          "visible": true
+        },
+        "/transformed_global_plan": {
+          "visible": false
+        },
+        "/plan": {
+          "visible": true
+        },
+        "/slam_toolbox/scan_visualization": {
+          "visible": true
+        },
+        "/slam_toolbox/graph_visualization": {
+          "visible": false
+        },
+        "/scan": {
+          "visible": true,
+          "colorField": "intensity",
+          "colorMode": "colormap",
+          "colorMap": "turbo"
+        },
+        "/goal_pose": {
+          "visible": true
+        },
+        "/camera/camera_info": {
+          "visible": false
+        },
+        "/cost_cloud": {
+          "visible": false
+        },
+        "/pose": {
+          "visible": true
+        },
+        "/marker": {
+          "visible": false
+        },
+        "/received_global_plan": {
+          "visible": false
+        },
+        "/plan_smoothed": {
+          "visible": false
+        },
+        "/global_costmap/published_footprint": {
+          "visible": false
+        },
+        "/local_plan": {
+          "visible": false
+        },
+        "/local_costmap/published_footprint": {
+          "visible": false
+        },
+        "/global_costmap/costmap": {
+          "visible": false
+        },
+        "/global_costmap/static_layer": {
+          "visible": false
+        },
+        "/global_costmap/obstacle_layer": {
+          "visible": false
+        },
+        "/initialpose": {
+          "visible": false
+        }
+      },
+      "layers": {
+        "grid": {
+          "visible": true,
+          "drawBehind": false,
+          "frameLocked": true,
+          "label": "Grid",
+          "instanceId": "cffd31fe-f660-4975-b9d2-e7a0cd483385",
+          "layerId": "foxglove.Grid",
+          "size": 10,
+          "divisions": 10,
+          "lineWidth": 1,
+          "color": "#248eff",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "publish": {
+        "type": "pose",
+        "poseTopic": "/goal_pose",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      },
+      "imageMode": {}
+    }
+  },
+  "globalVariables": {},
+  "userNodes": {},
+  "playbackConfig": {
+    "speed": 1
+  },
+  "drawerConfig": {
+    "tracks": []
+  },
+  "layout": "3D!r1z4t4"
+}
