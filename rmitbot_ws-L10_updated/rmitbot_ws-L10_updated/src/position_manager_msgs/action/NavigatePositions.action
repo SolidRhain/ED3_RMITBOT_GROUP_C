@@ -1,0 +1,12 @@
+# Goal
+string[] position_names
+---
+# Result
+bool success
+string message
+int32 positions_reached
+---
+# Feedback
+int32 current_position_index
+string current_position_name
+float32 progress_percentage

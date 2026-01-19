@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<robot name="rmitbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- <xacro:macro name="imu_sensor" params="parent"> -->
+
+  <link name="imu_link">
+    <inertial>
+      <origin xyz="-9.59219745768486E-06 -7.83699383712921E-05 0.000491326174053383" rpy="0 0 0" />
+      <mass value="0.00038747" />
+      <inertia
+        ixx="7.239e-09" ixy="1.385e-11" ixz="3.012e-12"
+        iyy="2.160e-08" iyz="-8.940e-12" izz="2.877e-08" />
+      </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rmitbot_description/meshes/imu_link.STL" />
+      </geometry>
+      <material name="imu_color">
+        <color rgba="0.79 0.82 0.93 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rmitbot_description/meshes/imu_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="imu_joint" type="fixed">
+    <origin xyz="0 0.022016788682501 0.00599999999999999" rpy="-3.14159265358979 0 0" />
+    <parent link="base_link" />
+    <child link="imu_link" />
+  </joint>
+
+  <gazebo>
+      <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu">
+      </plugin>
+  </gazebo>
+
+  <gazebo reference="imu_link">
+    <sensor name="imu" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>imu</topic>
+      <gz_frame_id>imu_link</gz_frame_id>
+      <imu>
+        <angular_velocity>
+          <x>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+            </noise>
+          </z>
+        </angular_velocity>
+        <linear_acceleration>
+          <x>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+            </noise>
+          </z>
+        </linear_acceleration>
+      </imu>
+    </sensor>
+  </gazebo>
+
+  <!-- </xacro:macro> -->
+</robot>

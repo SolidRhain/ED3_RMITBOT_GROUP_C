@@ -1,0 +1,15 @@
+CorrelationId: 0586b41c-06f4-407e-977b-aa20281f5f04
+UTC DateTime: 01/19/2026 04:21:51
+
+The following files/folders have not been downloaded
+0. rmitbot_ws-L10_updated/src/libcamera/utils/codegen/ipc/generators/__init__.py
+1. rmitbot_ws-L10_updated/src/libcamera/utils/codegen/ipc/mojo/public/tools/bindings/checks/__init__.py
+2. rmitbot_ws-L10_updated/src/libcamera/utils/codegen/ipc/mojo/public/tools/mojom/mojom/__init__.py
+3. rmitbot_ws-L10_updated/src/libcamera/utils/codegen/ipc/mojo/public/tools/mojom/mojom/generate/__init__.py
+4. rmitbot_ws-L10_updated/src/libcamera/utils/codegen/ipc/mojo/public/tools/mojom/mojom/parse/__init__.py
+5. rmitbot_ws-L10_updated/src/position_manager/position_manager/__init__.py
+6. rmitbot_ws-L10_updated/src/position_manager/resource/position_manager
+7. rmitbot_ws-L10_updated/src/position_manager_msgs/msg/.gitkeep
+8. rmitbot_ws-L10_updated/src/position_manager_msgs/position_manager_msgs/__init__.py
+9. rmitbot_ws-L10_updated/src/position_manager_msgs/resource/position_manager_msgs
+10. rmitbot_ws-L10_updated/src/web_bridge/resource/web_bridge
