@@ -1,0 +1,2952 @@
+<?xml version="1.0"?>
+<sdf version='1.10'>
+    <world name="room_world">
+
+        <physics name='1ms' type='ode'>
+            <max_step_size>0.001</max_step_size>
+            <real_time_factor>1</real_time_factor>
+            <real_time_update_rate>1000</real_time_update_rate>
+        </physics>
+
+        <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+        <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+        <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+        <plugin name='gz::sim::systems::Contact' filename='gz-sim-contact-system'/>
+        <gravity>0 0 -9.8000000000000007</gravity>
+        <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+        <atmosphere type='adiabatic'/>
+
+        <scene>
+            <ambient>0.400000006 0.400000006 0.400000006 1</ambient>
+            <background>0.699999988 0.699999988 0.699999988 1</background>
+            <shadows>true</shadows>
+        </scene>
+
+        <light name='sun' type='directional'>
+            <pose>0 0 10 0 0 0</pose>
+            <cast_shadows>true</cast_shadows>
+            <intensity>1</intensity>
+            <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+            <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+            <specular>0.200000003 0.200000003 0.200000003 1</specular>
+            <attenuation>
+                <range>1000</range>
+                <linear>0.0099999997764825821</linear>
+                <constant>0.89999997615814209</constant>
+                <quadratic>0.0010000000474974513</quadratic>
+            </attenuation>
+            <spot>
+                <inner_angle>0</inner_angle>
+                <outer_angle>0</outer_angle>
+                <falloff>0</falloff>
+            </spot>
+        </light>
+
+        <model name="floor">
+            <static>true</static>
+            <link name="floor_link">
+                <collision name="collision">
+                    <geometry>
+                        <plane>
+                            <normal>0 0 1</normal>
+                            <size>50 50</size>
+                        </plane>
+                    </geometry>
+                    <surface>
+                        <contact />
+                        <friction />
+                    </surface>
+                </collision>
+                <visual name="visual">
+                    <geometry>
+                        <plane>
+                            <normal>0 0 1</normal>
+                            <size>50 50</size>
+                        </plane>
+                    </geometry>
+                    <material>
+                        <ambient>0.7 0.7 0.7 1</ambient>
+                        <diffuse>0.7 0.7 0.7 1</diffuse>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="room_8x8">
+            <static> true </static>
+
+            <model name='grey_wall'>
+                <static>true</static>
+                <link name='link'>
+                    <pose>0 0 1.3999999999999999 0 0 0</pose>
+                    <collision name='collision'>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <cast_shadows>false</cast_shadows>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <script>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/scripts</uri>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/textures</uri>
+                        <name>vrc/grey_wall</name>
+                        </script>
+                    </material>
+                    </visual>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>2.3500345528053961 -10.086572569169098 0 0 0 0</pose>
+                <self_collide>false</self_collide>
+            </model>
+
+            <model name='grey_wall_0'>
+                <static>true</static>
+                <link name='link'>
+                    <pose>0 0 1.3999999999999999 0 0 0</pose>
+                    <collision name='collision'>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <cast_shadows>false</cast_shadows>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <script>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/scripts</uri>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/textures</uri>
+                        <name>vrc/grey_wall</name>
+                        </script>
+                    </material>
+                    </visual>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>2.2876431651795213 10.073451027096581 0 0 0 0</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='grey_wall_1'>
+                <static>true</static>
+                <link name='link'>
+                    <pose>0 0 1.3999999999999999 0 0 0</pose>
+                    <collision name='collision'>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <cast_shadows>false</cast_shadows>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <script>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/scripts</uri>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/textures</uri>
+                        <name>vrc/grey_wall</name>
+                        </script>
+                    </material>
+                    </visual>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>6.1043744087219238 6.4100899696350098 0 0 0 1.5653800285808779</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='grey_wall_2'>
+                <static>true</static>
+                <link name='link'>
+                    <pose>0 0 1.3999999999999999 0 0 0</pose>
+                    <collision name='collision'>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <cast_shadows>false</cast_shadows>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <script>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/scripts</uri>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/textures</uri>
+                        <name>vrc/grey_wall</name>
+                        </script>
+                    </material>
+                    </visual>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>6.0752739906311035 0.1458752453327179 -2.2204460492503131e-16 0 0 1.5709900337133624</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='grey_wall_3'>
+                <static>true</static>
+                <link name='link'>
+                    <pose>0 0 1.3999999999999999 0 0 0</pose>
+                    <collision name='collision'>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <cast_shadows>false</cast_shadows>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <script>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/scripts</uri>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/textures</uri>
+                        <name>vrc/grey_wall</name>
+                        </script>
+                    </material>
+                    </visual>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>6.1163201332092285 -6.3816299438476562 0 0 0 1.583122334865203</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='grey_wall_0_1'>
+                <static>true</static>
+                <link name='link'>
+                    <pose>0 0 1.3999999999999999 0 0 0</pose>
+                    <collision name='collision'>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <cast_shadows>false</cast_shadows>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <script>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/scripts</uri>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/textures</uri>
+                        <name>vrc/grey_wall</name>
+                        </script>
+                    </material>
+                    </visual>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>-1.2543700091095706 10.070393617225148 0 0 0 0</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='grey_wall_4'>
+                <static>true</static>
+                <link name='link'>
+                    <pose>0 0 1.3999999999999999 0 0 0</pose>
+                    <collision name='collision'>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <cast_shadows>false</cast_shadows>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <script>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/scripts</uri>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/textures</uri>
+                        <name>vrc/grey_wall</name>
+                        </script>
+                    </material>
+                    </visual>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>-1.2406911942674261 -10.099113099082825 0 0 0 0</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='aws_robomaker_warehouse_ShelfD_01'>
+                <link name='link'>
+                    <collision name='collision'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfd_01/4/meshes/aws_robomaker_warehouse_ShelfD_01_collision.DAE</uri>
+                        <scale>1 1 1</scale>
+                        </mesh>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode>
+                            <mu>0.20000000000000001</mu>
+                            <mu2>0.20000000000000001</mu2>
+                            <fdir1>0 0 0</fdir1>
+                            <slip1>0</slip1>
+                            <slip2>0</slip2>
+                        </ode>
+                        </friction>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfd_01/4/meshes/aws_robomaker_warehouse_ShelfD_01_visual.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <meta>
+                        <layer>1</layer>
+                    </meta>
+                    </visual>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <static>true</static>
+                <pose>-1.0901390314102173 7.5197257995605469 0 0 0 -3.1215499997905778</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='aws_robomaker_warehouse_ShelfE_01'>
+                <link name='link'>
+                    <collision name='collision'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfe_01/4/meshes/aws_robomaker_warehouse_ShelfE_01_collision.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode>
+                            <mu>0.20000000000000001</mu>
+                            <mu2>0.20000000000000001</mu2>
+                            <fdir1>0 0 0</fdir1>
+                            <slip1>0</slip1>
+                            <slip2>0</slip2>
+                        </ode>
+                        </friction>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfe_01/4/meshes/aws_robomaker_warehouse_ShelfE_01_visual.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <meta>
+                        <layer>1</layer>
+                    </meta>
+                    </visual>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <static>true</static>
+                <pose>-1.1177868843078613 6.4655399322509766 0 0 0 0</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='aws_robomaker_warehouse_ShelfE_01_0'>
+                <link name='link'>
+                    <collision name='collision'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfe_01/4/meshes/aws_robomaker_warehouse_ShelfE_01_collision.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode>
+                            <mu>0.20000000000000001</mu>
+                            <mu2>0.20000000000000001</mu2>
+                            <fdir1>0 0 0</fdir1>
+                            <slip1>0</slip1>
+                            <slip2>0</slip2>
+                        </ode>
+                        </friction>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfe_01/4/meshes/aws_robomaker_warehouse_ShelfE_01_visual.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <meta>
+                        <layer>1</layer>
+                    </meta>
+                    </visual>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <static>true</static>
+                <pose>-5.0664205551147461 7.4769296646118164 0 0 0 -3.1377099998417068</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='aws_robomaker_warehouse_ShelfD_01_0'>
+                <link name='link'>
+                    <collision name='collision'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfd_01/4/meshes/aws_robomaker_warehouse_ShelfD_01_collision.DAE</uri>
+                        <scale>1 1 1</scale>
+                        </mesh>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode>
+                            <mu>0.20000000000000001</mu>
+                            <mu2>0.20000000000000001</mu2>
+                            <fdir1>0 0 0</fdir1>
+                            <slip1>0</slip1>
+                            <slip2>0</slip2>
+                        </ode>
+                        </friction>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfd_01/4/meshes/aws_robomaker_warehouse_ShelfD_01_visual.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <meta>
+                        <layer>1</layer>
+                    </meta>
+                    </visual>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <static>true</static>
+                <pose>-5.0733799934387207 6.4491548538208008 0 0 0 0</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='aws_robomaker_warehouse_ShelfE_01_1'>
+                <link name='link'>
+                    <collision name='collision'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfe_01/4/meshes/aws_robomaker_warehouse_ShelfE_01_collision.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode>
+                            <mu>0.20000000000000001</mu>
+                            <mu2>0.20000000000000001</mu2>
+                            <fdir1>0 0 0</fdir1>
+                            <slip1>0</slip1>
+                            <slip2>0</slip2>
+                        </ode>
+                        </friction>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfe_01/4/meshes/aws_robomaker_warehouse_ShelfE_01_visual.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <meta>
+                        <layer>1</layer>
+                    </meta>
+                    </visual>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <static>true</static>
+                <pose>1.0199600458145142 -6.430300235748291 0 0 0 -3.1091019468380972</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='aws_robomaker_warehouse_ShelfD_01_1'>
+                <link name='link'>
+                    <collision name='collision'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfd_01/4/meshes/aws_robomaker_warehouse_ShelfD_01_collision.DAE</uri>
+                        <scale>1 1 1</scale>
+                        </mesh>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode>
+                            <mu>0.20000000000000001</mu>
+                            <mu2>0.20000000000000001</mu2>
+                            <fdir1>0 0 0</fdir1>
+                            <slip1>0</slip1>
+                            <slip2>0</slip2>
+                        </ode>
+                        </friction>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfd_01/4/meshes/aws_robomaker_warehouse_ShelfD_01_visual.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <meta>
+                        <layer>1</layer>
+                    </meta>
+                    </visual>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <static>true</static>
+                <pose>1.0629904025312484 -7.5286516264773207 0 0 0 0</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='aws_robomaker_warehouse_ShelfE_01_2'>
+                <link name='link'>
+                    <collision name='collision'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfe_01/4/meshes/aws_robomaker_warehouse_ShelfE_01_collision.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode>
+                            <mu>0.20000000000000001</mu>
+                            <mu2>0.20000000000000001</mu2>
+                            <fdir1>0 0 0</fdir1>
+                            <slip1>0</slip1>
+                            <slip2>0</slip2>
+                        </ode>
+                        </friction>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfe_01/4/meshes/aws_robomaker_warehouse_ShelfE_01_visual.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <meta>
+                        <layer>1</layer>
+                    </meta>
+                    </visual>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <static>true</static>
+                <pose>0.95510722665388492 -3.4316671189511512 0 0 0 0</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='aws_robomaker_warehouse_ShelfD_01_2'>
+                <link name='link'>
+                    <collision name='collision'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfd_01/4/meshes/aws_robomaker_warehouse_ShelfD_01_collision.DAE</uri>
+                        <scale>1 1 1</scale>
+                        </mesh>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode>
+                            <mu>0.20000000000000001</mu>
+                            <mu2>0.20000000000000001</mu2>
+                            <fdir1>0 0 0</fdir1>
+                            <slip1>0</slip1>
+                            <slip2>0</slip2>
+                        </ode>
+                        </friction>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfd_01/4/meshes/aws_robomaker_warehouse_ShelfD_01_visual.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <meta>
+                        <layer>1</layer>
+                    </meta>
+                    </visual>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <static>true</static>
+                <pose>0.93492501974105835 -2.4376199245452881 0 0 0 -3.1247200064912519</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='aws_robomaker_warehouse_ShelfE_01_3'>
+                <link name='link'>
+                    <collision name='collision'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfe_01/4/meshes/aws_robomaker_warehouse_ShelfE_01_collision.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode>
+                            <mu>0.20000000000000001</mu>
+                            <mu2>0.20000000000000001</mu2>
+                            <fdir1>0 0 0</fdir1>
+                            <slip1>0</slip1>
+                            <slip2>0</slip2>
+                        </ode>
+                        </friction>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfe_01/4/meshes/aws_robomaker_warehouse_ShelfE_01_visual.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <meta>
+                        <layer>1</layer>
+                    </meta>
+                    </visual>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <static>true</static>
+                <pose>-6.0537719524801963 -3.4849845148377483 0 0 0 0</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='aws_robomaker_warehouse_ShelfD_01_3'>
+                <link name='link'>
+                    <collision name='collision'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfd_01/4/meshes/aws_robomaker_warehouse_ShelfD_01_collision.DAE</uri>
+                        <scale>1 1 1</scale>
+                        </mesh>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode>
+                            <mu>0.20000000000000001</mu>
+                            <mu2>0.20000000000000001</mu2>
+                            <fdir1>0 0 0</fdir1>
+                            <slip1>0</slip1>
+                            <slip2>0</slip2>
+                        </ode>
+                        </friction>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfd_01/4/meshes/aws_robomaker_warehouse_ShelfD_01_visual.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <meta>
+                        <layer>1</layer>
+                    </meta>
+                    </visual>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <static>true</static>
+                <pose>-5.9777736648003472 -7.4664885263940963 0 0 0 0</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='aws_robomaker_warehouse_ShelfE_01_4'>
+                <link name='link'>
+                    <collision name='collision'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfe_01/4/meshes/aws_robomaker_warehouse_ShelfE_01_collision.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode>
+                            <mu>0.20000000000000001</mu>
+                            <mu2>0.20000000000000001</mu2>
+                            <fdir1>0 0 0</fdir1>
+                            <slip1>0</slip1>
+                            <slip2>0</slip2>
+                        </ode>
+                        </friction>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfe_01/4/meshes/aws_robomaker_warehouse_ShelfE_01_visual.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <meta>
+                        <layer>1</layer>
+                    </meta>
+                    </visual>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <static>true</static>
+                <pose>-5.9774837493896484 -6.4793710708618164 0 0 0 3.1362099997428352</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='aws_robomaker_warehouse_ShelfE_01_5'>
+                <link name='link'>
+                    <collision name='collision'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfe_01/4/meshes/aws_robomaker_warehouse_ShelfE_01_collision.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode>
+                            <mu>0.20000000000000001</mu>
+                            <mu2>0.20000000000000001</mu2>
+                            <fdir1>0 0 0</fdir1>
+                            <slip1>0</slip1>
+                            <slip2>0</slip2>
+                        </ode>
+                        </friction>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfe_01/4/meshes/aws_robomaker_warehouse_ShelfE_01_visual.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <meta>
+                        <layer>1</layer>
+                    </meta>
+                    </visual>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <static>true</static>
+                <pose>-6.0883498191833496 -2.4486799240112305 0 0 0 -3.1325711600968389</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='Picking_Shelves'>
+                <link name='base_link'>
+                    <visual name='base_visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/picking_shelves/1/base_visual.glb</uri>
+                        </mesh>
+                    </geometry>
+                    </visual>
+                    <collision name='pickingshelvesshort_collider_box'>
+                    <pose>0 0 0.063500000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort005_collider_box'>
+                    <pose>0 0 0.36830000000000002 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort010_collider_box'>
+                    <pose>0 0 0.67310000000000003 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort015_collider_box'>
+                    <pose>0 0 0.97789999999999999 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort020_collider_box'>
+                    <pose>0 0 1.2827 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort025_collider_box'>
+                    <pose>0 0 1.5874999999999999 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort030_collider_box'>
+                    <pose>0 0 1.8923000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort035_collider_box'>
+                    <pose>-0.43101299999999998 -0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort036_collider_box'>
+                    <pose>-0.43101299999999998 0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort037_collider_box'>
+                    <pose>0.43101299999999998 -0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort038_collider_box'>
+                    <pose>0.43101299999999998 0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>1.4436966180801392 2.266510009765625 0 0 0 0</pose>
+                <static>false</static>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='Picking_Shelves_0'>
+                <link name='base_link'>
+                    <visual name='base_visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/picking_shelves/1/base_visual.glb</uri>
+                        </mesh>
+                    </geometry>
+                    </visual>
+                    <collision name='pickingshelvesshort_collider_box'>
+                    <pose>0 0 0.063500000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort005_collider_box'>
+                    <pose>0 0 0.36830000000000002 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort010_collider_box'>
+                    <pose>0 0 0.67310000000000003 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort015_collider_box'>
+                    <pose>0 0 0.97789999999999999 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort020_collider_box'>
+                    <pose>0 0 1.2827 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort025_collider_box'>
+                    <pose>0 0 1.5874999999999999 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort030_collider_box'>
+                    <pose>0 0 1.8923000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort035_collider_box'>
+                    <pose>-0.43101299999999998 -0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort036_collider_box'>
+                    <pose>-0.43101299999999998 0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort037_collider_box'>
+                    <pose>0.43101299999999998 -0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort038_collider_box'>
+                    <pose>0.43101299999999998 0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>1.4457738343138846 1.7515911487226385 0 0 0 0</pose>
+                <static>false</static>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='Picking_Shelves_1'>
+                <link name='base_link'>
+                    <visual name='base_visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/picking_shelves/1/base_visual.glb</uri>
+                        </mesh>
+                    </geometry>
+                    </visual>
+                    <collision name='pickingshelvesshort_collider_box'>
+                    <pose>0 0 0.063500000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort005_collider_box'>
+                    <pose>0 0 0.36830000000000002 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort010_collider_box'>
+                    <pose>0 0 0.67310000000000003 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort015_collider_box'>
+                    <pose>0 0 0.97789999999999999 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort020_collider_box'>
+                    <pose>0 0 1.2827 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort025_collider_box'>
+                    <pose>0 0 1.5874999999999999 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort030_collider_box'>
+                    <pose>0 0 1.8923000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort035_collider_box'>
+                    <pose>-0.43101299999999998 -0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort036_collider_box'>
+                    <pose>-0.43101299999999998 0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort037_collider_box'>
+                    <pose>0.43101299999999998 -0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort038_collider_box'>
+                    <pose>0.43101299999999998 0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>0.47242185473442078 1.7616499662399292 0 0 0 0</pose>
+                <static>false</static>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='Picking_Shelves_2'>
+                <link name='base_link'>
+                    <visual name='base_visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/picking_shelves/1/base_visual.glb</uri>
+                        </mesh>
+                    </geometry>
+                    </visual>
+                    <collision name='pickingshelvesshort_collider_box'>
+                    <pose>0 0 0.063500000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort005_collider_box'>
+                    <pose>0 0 0.36830000000000002 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort010_collider_box'>
+                    <pose>0 0 0.67310000000000003 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort015_collider_box'>
+                    <pose>0 0 0.97789999999999999 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort020_collider_box'>
+                    <pose>0 0 1.2827 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort025_collider_box'>
+                    <pose>0 0 1.5874999999999999 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort030_collider_box'>
+                    <pose>0 0 1.8923000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort035_collider_box'>
+                    <pose>-0.43101299999999998 -0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort036_collider_box'>
+                    <pose>-0.43101299999999998 0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort037_collider_box'>
+                    <pose>0.43101299999999998 -0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort038_collider_box'>
+                    <pose>0.43101299999999998 0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>0.44796791672706604 2.2676200866699219 0 0 0 0</pose>
+                <static>false</static>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='Picking_Shelves_3'>
+                <link name='base_link'>
+                    <visual name='base_visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/picking_shelves/1/base_visual.glb</uri>
+                        </mesh>
+                    </geometry>
+                    </visual>
+                    <collision name='pickingshelvesshort_collider_box'>
+                    <pose>0 0 0.063500000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort005_collider_box'>
+                    <pose>0 0 0.36830000000000002 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort010_collider_box'>
+                    <pose>0 0 0.67310000000000003 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort015_collider_box'>
+                    <pose>0 0 0.97789999999999999 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort020_collider_box'>
+                    <pose>0 0 1.2827 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort025_collider_box'>
+                    <pose>0 0 1.5874999999999999 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort030_collider_box'>
+                    <pose>0 0 1.8923000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort035_collider_box'>
+                    <pose>-0.43101299999999998 -0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort036_collider_box'>
+                    <pose>-0.43101299999999998 0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort037_collider_box'>
+                    <pose>0.43101299999999998 -0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort038_collider_box'>
+                    <pose>0.43101299999999998 0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>-0.50795033032125236 2.256287532968253 0 0 0 0</pose>
+                <static>false</static>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='Picking_Shelves_4'>
+                <link name='base_link'>
+                    <visual name='base_visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/picking_shelves/1/base_visual.glb</uri>
+                        </mesh>
+                    </geometry>
+                    </visual>
+                    <collision name='pickingshelvesshort_collider_box'>
+                    <pose>0 0 0.063500000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort005_collider_box'>
+                    <pose>0 0 0.36830000000000002 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort010_collider_box'>
+                    <pose>0 0 0.67310000000000003 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort015_collider_box'>
+                    <pose>0 0 0.97789999999999999 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort020_collider_box'>
+                    <pose>0 0 1.2827 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort025_collider_box'>
+                    <pose>0 0 1.5874999999999999 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort030_collider_box'>
+                    <pose>0 0 1.8923000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort035_collider_box'>
+                    <pose>-0.43101299999999998 -0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort036_collider_box'>
+                    <pose>-0.43101299999999998 0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort037_collider_box'>
+                    <pose>0.43101299999999998 -0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort038_collider_box'>
+                    <pose>0.43101299999999998 0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>-0.49668666897583935 1.750528270645251 0 0 0 0</pose>
+                <static>false</static>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='Picking_Shelves_5'>
+                <link name='base_link'>
+                    <visual name='base_visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/picking_shelves/1/base_visual.glb</uri>
+                        </mesh>
+                    </geometry>
+                    </visual>
+                    <collision name='pickingshelvesshort_collider_box'>
+                    <pose>0 0 0.063500000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort005_collider_box'>
+                    <pose>0 0 0.36830000000000002 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort010_collider_box'>
+                    <pose>0 0 0.67310000000000003 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort015_collider_box'>
+                    <pose>0 0 0.97789999999999999 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort020_collider_box'>
+                    <pose>0 0 1.2827 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort025_collider_box'>
+                    <pose>0 0 1.5874999999999999 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort030_collider_box'>
+                    <pose>0 0 1.8923000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort035_collider_box'>
+                    <pose>-0.43101299999999998 -0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort036_collider_box'>
+                    <pose>-0.43101299999999998 0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort037_collider_box'>
+                    <pose>0.43101299999999998 -0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort038_collider_box'>
+                    <pose>0.43101299999999998 0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>-1.4592711925506592 2.2648301124572754 0 0 0 0</pose>
+                <static>false</static>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='Picking_Shelves_6'>
+                <link name='base_link'>
+                    <visual name='base_visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/picking_shelves/1/base_visual.glb</uri>
+                        </mesh>
+                    </geometry>
+                    </visual>
+                    <collision name='pickingshelvesshort_collider_box'>
+                    <pose>0 0 0.063500000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort005_collider_box'>
+                    <pose>0 0 0.36830000000000002 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort010_collider_box'>
+                    <pose>0 0 0.67310000000000003 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort015_collider_box'>
+                    <pose>0 0 0.97789999999999999 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort020_collider_box'>
+                    <pose>0 0 1.2827 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort025_collider_box'>
+                    <pose>0 0 1.5874999999999999 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort030_collider_box'>
+                    <pose>0 0 1.8923000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.90169999999999995 0.44431199999999998 0.025399999999999999</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort035_collider_box'>
+                    <pose>-0.43101299999999998 -0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort036_collider_box'>
+                    <pose>-0.43101299999999998 0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort037_collider_box'>
+                    <pose>0.43101299999999998 -0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <collision name='pickingshelvesshort038_collider_box'>
+                    <pose>0.43101299999999998 0.20241300000000001 0.95250000000000001 0 0 0</pose>
+                    <geometry>
+                        <box>
+                        <size>0.052374999999999998 0.052374999999999998 1.905</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>-1.4598247869180261 1.7636994121016221 0 0 0 0</pose>
+                <static>false</static>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='aws_robomaker_warehouse_ShelfE_01_6'>
+                <link name='link'>
+                    <collision name='collision'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfe_01/4/meshes/aws_robomaker_warehouse_ShelfE_01_collision.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode>
+                            <mu>0.20000000000000001</mu>
+                            <mu2>0.20000000000000001</mu2>
+                            <fdir1>0 0 0</fdir1>
+                            <slip1>0</slip1>
+                            <slip2>0</slip2>
+                        </ode>
+                        </friction>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfe_01/4/meshes/aws_robomaker_warehouse_ShelfE_01_visual.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <meta>
+                        <layer>1</layer>
+                    </meta>
+                    </visual>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <static>true</static>
+                <pose>-4.2603009428044549 1.565524935714838 0 0 0 0</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='aws_robomaker_warehouse_ShelfD_01_4'>
+                <link name='link'>
+                    <collision name='collision'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfd_01/4/meshes/aws_robomaker_warehouse_ShelfD_01_collision.DAE</uri>
+                        <scale>1 1 1</scale>
+                        </mesh>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode>
+                            <mu>0.20000000000000001</mu>
+                            <mu2>0.20000000000000001</mu2>
+                            <fdir1>0 0 0</fdir1>
+                            <slip1>0</slip1>
+                            <slip2>0</slip2>
+                        </ode>
+                        </friction>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>file:///home/vo-minh-triet/.gz/fuel/fuel.gazebosim.org/openrobotics/models/aws_robomaker_warehouse_shelfd_01/4/meshes/aws_robomaker_warehouse_ShelfD_01_visual.DAE</uri>
+                        </mesh>
+                    </geometry>
+                    <meta>
+                        <layer>1</layer>
+                    </meta>
+                    </visual>
+                    <pose>0 0 0 0 0 0</pose>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <static>true</static>
+                <pose>-4.2694358825683594 2.5480072498321533 0 0 0 -3.1321999999383547</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='grey_wall_0_1_1'>
+                <static>true</static>
+                <link name='link'>
+                    <pose>0 0 1.3999999999999999 0 0 0</pose>
+                    <collision name='collision'>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <cast_shadows>false</cast_shadows>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <script>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/scripts</uri>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/textures</uri>
+                        <name>vrc/grey_wall</name>
+                        </script>
+                    </material>
+                    </visual>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>-6.2391177836636684 10.079366988822375 0 0 0 0</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='grey_wall_5'>
+                <static>true</static>
+                <link name='link'>
+                    <pose>0 0 1.3999999999999999 0 0 0</pose>
+                    <collision name='collision'>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <cast_shadows>false</cast_shadows>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <script>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/scripts</uri>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/textures</uri>
+                        <name>vrc/grey_wall</name>
+                        </script>
+                    </material>
+                    </visual>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>-6.2301544142866492 -10.091869818581536 0 0 0 0</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='grey_wall_6'>
+                <static>true</static>
+                <link name='link'>
+                    <pose>0 0 1.3999999999999999 0 0 0</pose>
+                    <collision name='collision'>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <cast_shadows>false</cast_shadows>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <script>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/scripts</uri>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/textures</uri>
+                        <name>vrc/grey_wall</name>
+                        </script>
+                    </material>
+                    </visual>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>-10.057719230651855 -6.4208192825317383 0 0 0 1.5765799783379255</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='grey_wall_6_1'>
+                <static>true</static>
+                <link name='link'>
+                    <pose>0 0 1.3999999999999999 0 0 0</pose>
+                    <collision name='collision'>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <cast_shadows>false</cast_shadows>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <script>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/scripts</uri>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/textures</uri>
+                        <name>vrc/grey_wall</name>
+                        </script>
+                    </material>
+                    </visual>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>-10.075637324840844 0.28623174649339722 0 0 0 1.5765799783379255</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='grey_wall_6_2'>
+                <static>true</static>
+                <link name='link'>
+                    <pose>0 0 1.3999999999999999 0 0 0</pose>
+                    <collision name='collision'>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                        <ode/>
+                        </friction>
+                        <bounce/>
+                        <contact/>
+                    </surface>
+                    </collision>
+                    <visual name='visual'>
+                    <cast_shadows>false</cast_shadows>
+                    <geometry>
+                        <box>
+                        <size>7.5 0.20000000000000001 2.7999999999999998</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <script>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/scripts</uri>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/grey wall/3/files/materials/textures</uri>
+                        <name>vrc/grey_wall</name>
+                        </script>
+                    </material>
+                    </visual>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>-10.127982319290643 6.4787988593000101 0 0 0 1.5765799783379255</pose>
+                <self_collide>false</self_collide>
+            </model>
+            <model name='NurseTable'>
+                <static>true</static>
+                <link name='body'>
+                    <pose>0 0 0 0 0 0</pose>
+                    <visual name='visual'>
+                    <geometry>
+                        <mesh>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/nursetable/2/files/meshes/NurseTable.obj</uri>
+                        </mesh>
+                    </geometry>
+                    </visual>
+                    <collision name='collision'>
+                    <geometry>
+                        <mesh>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/nursetable/2/files/meshes/NurseTable_Col.obj</uri>
+                        </mesh>
+                    </geometry>
+                    </collision>
+                    <inertial>
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>1</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>1</iyy>
+                        <iyz>0</iyz>
+                        <izz>1</izz>
+                    </inertia>
+                    </inertial>
+                    <enable_wind>false</enable_wind>
+                </link>
+                <pose>3.8139996528625488 4.5369477272033691 0 0 0 1.5732900721697962</pose>
+                <self_collide>false</self_collide>
+            </model>
+        </model>
+    </world>    
+</sdf>
